@@ -7,7 +7,9 @@ the Touchscreen trait:
 pub trait Touchscreen:
     embedded_graphics_core::prelude::DrawTarget +
     embedded_graphics_core::prelude::OriginDimensions {
-        fn get_touch_event(&mut self) -> Option<TouchEvent>;
+        type TouchError;
+
+        fn get_touch_event(&mut self) -> Result<Option<TouchEvent>, Self::TouchError>;
     }
 ```
 
