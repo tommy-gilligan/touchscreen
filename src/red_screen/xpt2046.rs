@@ -1,4 +1,3 @@
-#![no_std]
 pub struct Xpt2046<S: embedded_hal::spi::SpiDevice>(S);
 
 impl<S: embedded_hal::spi::SpiDevice> Xpt2046<S> {

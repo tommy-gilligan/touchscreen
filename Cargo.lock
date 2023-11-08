@@ -266,9 +266,9 @@ dependencies = [
  "embedded-graphics-core",
  "embedded-graphics-web-simulator",
  "embedded-hal 1.0.0-rc.1",
+ "embedded-hal-mock",
  "wasm-bindgen",
  "web-sys",
- "xpt2046",
 ]
 
 [[package]]
@@ -345,12 +345,4 @@ checksum = "5db499c5f66323272151db0e666cd34f78617522fb0c1604d31a27c50c206a85"
 dependencies = [
  "js-sys",
  "wasm-bindgen",
-]
-
-[[package]]
-name = "xpt2046"
-version = "0.1.0"
-dependencies = [
- "embedded-hal 1.0.0-rc.1",
- "embedded-hal-mock",
 ]

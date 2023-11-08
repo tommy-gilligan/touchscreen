@@ -3,6 +3,7 @@ use embedded_graphics_core::{
     prelude::{DrawTarget, OriginDimensions, Size},
     Pixel,
 };
+mod xpt2046;
 use xpt2046::Xpt2046;
 
 pub struct RedScreen<
