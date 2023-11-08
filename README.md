@@ -1,5 +1,8 @@
 # Touchscreen
 
+[![touchscreen on crates.io](https://img.shields.io/crates/d/touchscreen)](https://crates.io/crates/touchscreen)
+[![touchscreen on docs.rs](https://img.shields.io/docsrs/touchscreen)](https://docs.rs/touchscreen/latest/touchscreen/)
+
 A touchscreen is just a screen that you can touch.  Central to this crate is
 the Touchscreen trait:
 

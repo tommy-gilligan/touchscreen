@@ -1,11 +1,13 @@
 [package]
 name = "touchscreen"
+authors = ["Tommy Gilligan"]
 version = "0.1.0"
 edition = "2021"
 license = "MIT"
 description = "Decorates embedded-graphics to enable touch interactivity"
 homepage = "https://github.com/tommy-gilligan/touchscreen"
 repository = "https://github.com/tommy-gilligan/touchscreen.git"
+documentation = "https://docs.rs/touchscreen/latest/touchscreen/"
 
 [dependencies]
 embedded-graphics-core = "0.3.3"
