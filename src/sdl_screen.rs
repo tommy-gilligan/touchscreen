@@ -5,7 +5,7 @@ use embedded_graphics_core::{
     prelude::{DrawTarget, OriginDimensions, Size},
     Pixel,
 };
-use embedded_graphics_simulator::{OutputSettings, SimulatorDisplay, SimulatorEvent, Window};
+use embedded_graphics_simulator::{SimulatorDisplay, SimulatorEvent, Window};
 
 pub struct Sdl<C>
 where
