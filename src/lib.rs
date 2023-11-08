@@ -1,14 +1,14 @@
 #![no_std]
 use embedded_graphics_core::prelude::{DrawTarget, OriginDimensions};
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 pub enum TouchEventType {
     Start,
     Move,
     End,
 }
 
-#[derive(Debug)]
+#[derive(Debug, PartialEq, Eq)]
 pub struct TouchEvent {
     pub x: i32,
     pub y: i32,
@@ -26,3 +26,6 @@ pub mod red_screen;
 
 #[cfg(feature = "web-screen")]
 pub mod web_screen;
+
+#[cfg(feature = "sdl-screen")]
+pub mod sdl_screen;
