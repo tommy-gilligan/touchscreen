@@ -1,10 +1,11 @@
 extern crate std;
 use crate::{TouchEvent, TouchEventType, Touchscreen};
 use embedded_graphics_core::{
-    pixelcolor::Rgb888,
     prelude::{DrawTarget, OriginDimensions, Size},
     Pixel,
+    pixelcolor::{PixelColor, Rgb888},
 };
+
 use embedded_graphics_web_simulator::display::WebSimulatorDisplay;
 pub use embedded_graphics_web_simulator::output_settings::{OutputSettings, OutputSettingsBuilder};
 use std::boxed::Box;
@@ -28,13 +29,13 @@ struct MouseEvent {
     r#type: MouseEventType,
 }
 
-pub struct Web {
-    simulator_display: WebSimulatorDisplay<Rgb888>,
+pub struct Web<C> where C: PixelColor + Into<Rgb888> {
+    simulator_display: WebSimulatorDisplay<C>,
     down: bool,
     channel: (Sender<MouseEvent>, Receiver<MouseEvent>),
 }
 
-impl Web {
+impl <C>Web<C> where C: PixelColor + Into<Rgb888> {
     #[must_use]
     pub fn new(size: (u32, u32), output_settings: &OutputSettings, element: &Element) -> Self {
         let simulator_display = WebSimulatorDisplay::new(size, output_settings, Some(element));
@@ -143,8 +144,8 @@ impl Web {
     }
 }
 
-impl DrawTarget for Web {
-    type Color = Rgb888;
+impl <C>DrawTarget for Web<C> where C: PixelColor + Into<Rgb888> {
+    type Color = C;
     type Error = Box<dyn Error>;
 
     fn draw_iter<I: IntoIterator<Item = Pixel<<Self as DrawTarget>::Color>>>(
@@ -157,13 +158,13 @@ impl DrawTarget for Web {
     }
 }
 
-impl OriginDimensions for Web {
+impl <C>OriginDimensions for Web<C> where C: PixelColor + Into<Rgb888> {
     fn size(&self) -> Size {
         self.simulator_display.size()
     }
 }
 
-impl Touchscreen for Web {
+impl <C>Touchscreen for Web<C> where C: PixelColor + Into<Rgb888> {
     // not really infallible, the mouse handlers can fail but these failures are not being
     // collected right now
     type TouchError = std::convert::Infallible;
