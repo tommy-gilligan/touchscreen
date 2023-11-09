@@ -19,7 +19,7 @@ pub trait Touchscreen:
 It is overly simple right now, it is more of a tentative starting point.  There
 are 2 implementations, which can be selected by feature flags:
 
-- `red-screen`: This is a screen that I had lying around which combines XPT2046 (touch) with ILI9488 (screen)
+- `xpt2046-screen`: A screen that combines XPT2046 (touch) with arbitrary embedded-graphics `DrawTarget`.
 - `web-screen`: A screen that marries WebSimulatorDisplay with mouse event handlers bound to a container element.
 - `sdl-screen`: SimulatorDisplay adapted to Touchscreen.  Unfinished
 

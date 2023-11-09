@@ -21,8 +21,8 @@ pub trait Touchscreen: DrawTarget + OriginDimensions {
     fn get_touch_event(&mut self) -> Result<Option<TouchEvent>, Self::TouchError>;
 }
 
-#[cfg(feature = "red-screen")]
-pub mod red_screen;
+#[cfg(feature = "xpt2046-screen")]
+pub mod xpt2046_screen;
 
 #[cfg(feature = "web-screen")]
 pub mod web_screen;

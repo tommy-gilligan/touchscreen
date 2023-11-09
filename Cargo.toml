@@ -24,6 +24,6 @@ embedded-graphics-simulator = { git = "https://github.com/embedded-graphics/simu
 embedded-hal-mock = { version = "0.10.0-rc.1", features = ["eh1"] }
 
 [features]
-red-screen = ["dep:embedded-hal"]
+xpt2046-screen = ["dep:embedded-hal"]
 web-screen = ["dep:wasm-bindgen", "dep:embedded-graphics-web-simulator", "dep:web-sys"]
 sdl-screen = ["dep:embedded-graphics-simulator"]
