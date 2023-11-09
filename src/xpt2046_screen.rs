@@ -6,7 +6,7 @@ use embedded_graphics_core::{
 mod xpt2046;
 use xpt2046::Xpt2046;
 
-pub struct RedScreen<
+pub struct Xpt2046Screen<
     TS: embedded_hal::spi::SpiDevice,
     S: DrawTarget + OriginDimensions,
     C: Fn((u16, u16)) -> Option<(i32, i32)>,
@@ -21,7 +21,7 @@ impl<
         TS: embedded_hal::spi::SpiDevice,
         S: DrawTarget + OriginDimensions,
         C: Fn((u16, u16)) -> Option<(i32, i32)>,
-    > RedScreen<TS, S, C>
+    > Xpt2046Screen<TS, S, C>
 {
     pub fn new(screen: S, touch_spi_device: TS, calibration: C) -> Self {
         Self {
@@ -37,7 +37,7 @@ impl<
         TS: embedded_hal::spi::SpiDevice,
         S: DrawTarget + OriginDimensions,
         C: Fn((u16, u16)) -> Option<(i32, i32)>,
-    > DrawTarget for RedScreen<TS, S, C>
+    > DrawTarget for Xpt2046Screen<TS, S, C>
 {
     type Color = S::Color;
     type Error = S::Error;
@@ -54,7 +54,7 @@ impl<
         TS: embedded_hal::spi::SpiDevice,
         S: DrawTarget + OriginDimensions,
         C: Fn((u16, u16)) -> Option<(i32, i32)>,
-    > OriginDimensions for RedScreen<TS, S, C>
+    > OriginDimensions for Xpt2046Screen<TS, S, C>
 {
     fn size(&self) -> Size {
         self.screen.size()
@@ -65,7 +65,7 @@ impl<
         TS: embedded_hal::spi::SpiDevice,
         S: DrawTarget + OriginDimensions,
         C: Fn((u16, u16)) -> Option<(i32, i32)>,
-    > Touchscreen for RedScreen<TS, S, C>
+    > Touchscreen for Xpt2046Screen<TS, S, C>
 {
     type TouchError = <TS as embedded_hal::spi::ErrorType>::Error;
 
