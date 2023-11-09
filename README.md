@@ -21,9 +21,10 @@ are 2 implementations, which can be selected by feature flags:
 
 - `red-screen`: This is a screen that I had lying around which combines XPT2046 (touch) with ILI9488 (screen)
 - `web-screen`: A screen that marries WebSimulatorDisplay with mouse event handlers bound to a container element.
+- `sdl-screen`: SimulatorDisplay adapted to Touchscreen.  Unfinished
 
 ## Todo
 
 - Support touchscreens that can signal touch with interrupt
-- Add an SDL `touchscreen`
+- Finish SDL `touchscreen`
 - Clean up `web_screen`, propagate mouse handling errors
