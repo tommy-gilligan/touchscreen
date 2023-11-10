@@ -10,7 +10,7 @@ repository = "https://github.com/tommy-gilligan/touchscreen.git"
 documentation = "https://docs.rs/touchscreen/latest/touchscreen/"
 
 [dependencies]
-embedded-graphics-core = "0.4"
+embedded-graphics-core = { git = "https://github.com/tommy-gilligan/embedded-graphics.git" }
 
 embedded-hal = { version = "1.0.0-rc.1", optional = true }
 
